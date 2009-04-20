@@ -1,0 +1,86 @@
+* Euclid's algorithm:
+
+  [from http://en.wikipedia.org/wiki/Euclid%27s_algorithm]
+
+  function GCD(a, b)
+      while b != 0
+          t := b
+          b := a mod b
+          a := t
+      return a
+
+  Hinges on fact that GCD(a, b) = GCD(b, a mod b) (if a > b)
+
+* Insertion sort is similar to the way a card player sorts his hand:
+
+  insertionSort(array A)
+  begin
+      for i := 1 to length[A]-1 do
+      begin
+          value := A[i];
+          j := i-1;
+          while j >= 0 and A[j] > value do
+          begin
+              A[j + 1] := A[j];
+              j := j-1;
+          end;
+          A[j+1] := value;
+      end;
+  end;
+
+  runtime: θ(n^2)
+
+* Mergesort - split list in two, sort, and merge.
+  runtime: θ(n * log(n))
+
+* Binary search - works on already sorted list.
+  runtime: θ(log(n))
+
+* Traveling Salesman Problem: visit a set of cities without visiting any city
+* more than once while traveling the least distance possible.
+    This is an INTRACTABLE problem. 
+    Number of routes to test is n!.
+
+* Turing Machine:
+    - tape is infinitely long and divided into cells
+    - tape cells can contain symbols or blanks
+    - TM can read, write, or erase the symbol under the read/write head
+    - TM has a state
+    - head can only move +1, -1, or 0 steps; no hops allowed
+    - movement of head, state of TM, and cell values are performed/updates
+      by transition table
+    - every entry in transition table is an "instruction";
+      (current state, current symbol) => (next state, next symbol, move direction)
+
+   eg. TM to invert bits:
+    (1, 0, 1, 1, ->)                 // read a 0, write a 1, and move right
+    (1, 1, 0, 1, ->)                 // read a 1, write a 0, and move right
+    (1, blank, halt_state, blank, -) // read a blank (, write a blank), and halt
+
+* Church-Turing Thesis:
+    "...if an algorithm (a procedure that terminates) exists then there is an
+    equivalent Turing machine..." (wikipedia)
+
+* Halting Problem:
+    There is no TM H that decides whether or not a program p run on input i
+    halts or not. Proof by contradiction:
+
+    1. Assume H exists; it is called like so: H(p, i)
+       | H(p, i) -> True  if p halts on input i
+       |         -> False if p does not halt on input i
+
+    2. Devise a TM NotH, like so:
+       | define NotH(p):
+       |     if (H(p, p) is False): return True  // if p does not halt, False
+       |     else
+       |         while(True) {}                  //loop forever
+       |     endNotH
+       
+    3. Let the program for NotH be nh. Does NotH(nh) halt?
+       * if NotH(nh) halts, i.e. NotH(nh) -> True, then H(nh, nh) must be False,
+         meaning that NotH(nh) does not halt. This is a contradiction.
+       * if NotH(nh) does not halt, then H(p, p) must be True, meaning that
+         NotH(nh) halts. This is also a contradiction.
+
+    Thus, the original assumption about the existence of H is false.
+    This is a PROVABLY UNSOLVABLE problem.
