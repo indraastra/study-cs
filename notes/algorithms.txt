@@ -37,7 +37,7 @@
   runtime: θ(log(n))
 
 * Traveling Salesman Problem: visit a set of cities without visiting any city
-* more than once while traveling the least distance possible.
+  more than once while traveling the least distance possible.
     This is an INTRACTABLE problem. 
     Number of routes to test is n!.
 
@@ -54,7 +54,7 @@
 
    eg. TM to invert bits:
     (1, 0, 1, 1, ->)                 // read a 0, write a 1, and move right
-    (1, 1, 0, 1, ->)                 // read a 1, write a 0, and move right
+    (1, 1, 1, 0, ->)                 // read a 1, write a 0, and move right
     (1, blank, halt_state, blank, -) // read a blank (, write a blank), and halt
 
 * Church-Turing Thesis:
@@ -73,7 +73,7 @@
        | define NotH(p):
        |     if (H(p, p) is False): return True  // if p does not halt, False
        |     else
-       |         while(True) {}                  //loop forever
+       |         while(True) {}                  // loop forever
        |     endNotH
        
     3. Let the program for NotH be nh. Does NotH(nh) halt?
