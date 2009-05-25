@@ -4,7 +4,7 @@
  * Time: 11:26:29 AM
  */
 
-import java.io.*;
+import java.io.IOException;
 
 public class In {
     private static int c;
@@ -38,8 +38,7 @@ public class In {
         do {
             s += (char) c;
             readC();
-        }
-        while ( !( empty() | blank() ) );
+        } while ( !( empty() | blank() ) );
         while ( !empty() && blank() ) {
             readC();
         }

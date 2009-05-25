@@ -10,5 +10,6 @@ public class Out {
 
     public static void println( String s ) {
         System.out.println( s );
+        System.out.flush();
     }
 }

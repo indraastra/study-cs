@@ -1,12 +1,11 @@
 /**
  * User: Vishal Talwar
  * Date: May 25, 2009
- * Time: 11:17:45 AM
+ * Time: 12:12:06 PM
  * <p/>
- * Quick FIND, slow UNION
+ * Quick UNION, slow FIND
  */
-
-public class QuickF {
+public class QuickU {
     public static void main( String[] args ) {
         int N = Integer.parseInt( args[0] );
         int id[] = new int[N];
@@ -14,18 +13,15 @@ public class QuickF {
             id[i] = i;
         }
         for ( In.init(); !In.empty(); ) {
-            int p = In.getInt(), q = In.getInt();
+            int i, j, p = In.getInt(), q = In.getInt();
             // find
-            int t = id[p];
-            if ( t == id[q] ) {
+            for ( i = p; i != id[i]; i = id[i] ) ;
+            for ( j = p; j != id[j]; j = id[j] ) ;
+            if ( i == j ) {
                 continue;
             }
             // union
-            for ( int i = 0; i < N; i++ ) {
-                if ( id[i] == t ) {
-                    id[i] = id[q];
-                }
-            }
+            id[i] = j;
             Out.println( " " + p + " " + q );
         }
     }
