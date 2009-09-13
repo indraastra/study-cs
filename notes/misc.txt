@@ -1,0 +1,11 @@
+* Availability =      MTBF (mean time between failures)
+                  -------------
+                   MTBF + MTTR (mean time to repair)
+
+  eg. MTBF = 10,000 hrs
+      MTTR = 20 hrs
+   => Availability = 99.8%
+
+  eg. MTBF = 30 days
+      Maintainability = 25% repair chance/day
+   => Availability = 88%

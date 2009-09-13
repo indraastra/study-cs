@@ -11,7 +11,17 @@
 
   Hinges on fact that GCD(a, b) = GCD(b, a mod b) (if a > b)
 
-* Insertion sort is similar to the way a card player sorts his hand:
+* Selection Sort: look behind pointer until you find an appropriate position
+  for the element at pointer position, shift elements down and place
+
+  (n^2)/2 compares
+  n exchanges
+
+* Insertion Sort: is similar to the way a card player sorts his hand,
+  look ahead of pointer until you find the smallest element and swap with
+  element at pointer position.
+
+  efficient if input is already sorted!
 
   insertionSort(array A)
   begin
@@ -29,8 +39,12 @@
   end;
 
   runtime: θ(n^2)
+  (n^2)/4 compares
+  (n^2)/4 exchanges
 
-* Mergesort - split list in two, sort, and merge.
+* Shell Sort
+
+* Mergesort - split list in two repeatedly, sort, and merge.
   runtime: θ(n * log(n))
 
 * Binary search - works on already sorted list.
